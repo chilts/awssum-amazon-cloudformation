@@ -60,7 +60,7 @@ var CloudFormation = function(opts) {
 };
 
 // inherit from Amazon
-util.inherits(CloudFormation, amazon.Amazon);
+util.inherits(CloudFormation, amazon.AmazonSignatureV2);
 
 // --------------------------------------------------------------------------------------------------------------------
 // methods we need to implement from awssum.js/amazon.js

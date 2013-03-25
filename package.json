@@ -1,6 +1,6 @@
 {
     "name" : "awssum-amazon-cloudformation",
-    "description" : "NodeJS module to talk to Amazon CloudFormation.",
+    "description" : "AwsSum plugin for Amazon CloudFormation.",
     "version" : "1.0.0",
 
     "main" : "awssum-amazon-cloudformation.js",

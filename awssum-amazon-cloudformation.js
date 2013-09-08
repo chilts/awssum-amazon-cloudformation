@@ -65,6 +65,10 @@ util.inherits(CloudFormation, amazon.AmazonSignatureV4);
 // --------------------------------------------------------------------------------------------------------------------
 // methods we need to implement from awssum.js/amazon.js
 
+CloudFormation.prototype.method = function() {
+    return 'POST';
+};
+
 CloudFormation.prototype.host = function() {
     return endPoint[this.region()];
 };

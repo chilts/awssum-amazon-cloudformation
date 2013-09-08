@@ -60,7 +60,7 @@ var CloudFormation = function(opts) {
 };
 
 // inherit from Amazon
-util.inherits(CloudFormation, amazon.AmazonSignatureV2);
+util.inherits(CloudFormation, amazon.AmazonSignatureV4);
 
 // --------------------------------------------------------------------------------------------------------------------
 // methods we need to implement from awssum.js/amazon.js
@@ -71,6 +71,27 @@ CloudFormation.prototype.host = function() {
 
 CloudFormation.prototype.version = function() {
     return version;
+};
+
+// ----------------------------------------------------------------------------
+// AWS Signature v4
+
+CloudFormation.prototype.scope = function() {
+    return 'cloudformation';
+};
+
+CloudFormation.prototype.serviceName = function() {
+    return 'cloudformation';
+};
+
+CloudFormation.prototype.needsTarget = function() {
+    return false;
+};
+
+// This service uses the AWS Signature v4.
+// Hopefully, it fulfills : http://docs.amazonwebservices.com/cloudsearch/latest/developerguide/requestauth.html
+CloudFormation.prototype.contentType = function() {
+    return 'application/x-amz-json-1.0';
 };
 
 // --------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,52 @@
+{
+  "Mappings": {
+    "RegionMap": {
+      "us-east-1": {
+        "BaseAMI": "ami-05355a6c"
+      },
+      "us-west-2": {
+        "BaseAMI": "ami-0358ce33"
+      }
+    }
+  },
+  "Parameters": {
+    "WebServerAMI": {
+      "Type": "String",
+      "Default": "ami-XXXXXX"
+    }
+  },
+  "Resources": {
+    "WebServer": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "m1.large",
+        "ImageId": {
+          "Ref": "WebServerAMI"
+        },
+        "KeyName": "awsbox deploy key (...)",
+        "SecurityGroups": [
+          {
+            "Ref": "WebSecurityGroup"
+          }
+        ]
+      }
+    },
+    "WebSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "group for something",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {},
+  "Description": "the description of the template",
+  "AWSTemplateFormatVersion": "2010-09-09"
+}

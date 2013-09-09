@@ -8,8 +8,6 @@ dependencies. Both [awssum](https://github.com/awssum/awssum/) and
 
 ## Example ##
 
-Describe all your alarms:
-
 ```
 var fmt = require('fmt');
 var amazonCloudFormation = require('awssum-amazon-cloudformation');
@@ -20,7 +18,7 @@ var cf = new amazonCloudFormation.CloudFormation({
     'region'          : amazonCloudFormation.US_EAST_1
 });
 
-cf.DescribeStacks(function(err, data) {
+cf.ListStacks(function(err, data) {
     fmt.dump(err, 'err');
     fmt.dump(data, 'data');
 });

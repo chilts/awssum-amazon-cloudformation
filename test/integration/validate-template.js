@@ -51,4 +51,35 @@ test('CloudFormation.ValidateTemplate', function(t) {
     });
 });
 
+test('CloudFormation.ValidateTemplate - empty template', function(t) {
+    var args = {
+        TemplateBody : fs.readFileSync(__dirname + '/template-empty.json', { encoding : 'utf8' })
+    };
+
+    cf.ValidateTemplate(args, function(err, data) {
+        t.ok(err, 'CloudFormation:ValidateTemplate - empty template : error returned');
+
+        t.equal(data, null, 'CloudFormation:ValidateTemplate - empty template : no data')
+
+        var error = err.Body.ErrorResponse.Error;
+        console.log(err);
+        console.log(error);
+        t.equal(
+            error.Type,
+            'Sender',
+            'CloudFormation:ValidateTemplate - empty template : type is sender');
+        t.equal(
+            error.Code,
+            'ValidationError',
+            'CloudFormation:ValidateTemplate - empty template : code set correctly'
+        );
+        t.equal(
+            error.Message,
+            'Template format error: Every template must contain a Resources member.',
+            'CloudFormation:ValidateTemplate - empty template : message set correctly'
+        );
+        t.end();
+    });
+});
+
 // --------------------------------------------------------------------------------------------------------------------

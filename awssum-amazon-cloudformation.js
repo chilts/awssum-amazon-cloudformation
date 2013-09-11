@@ -95,7 +95,7 @@ CloudFormation.prototype.needsTarget = function() {
 // This service uses the AWS Signature v4.
 // Hopefully, it fulfills : http://docs.amazonwebservices.com/cloudsearch/latest/developerguide/requestauth.html
 CloudFormation.prototype.contentType = function() {
-    return 'application/x-amz-json-1.0';
+    return 'application/x-www-form-urlencoded';
 };
 
 // --------------------------------------------------------------------------------------------------------------------

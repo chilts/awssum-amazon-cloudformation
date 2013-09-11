@@ -9,12 +9,12 @@
 //
 // --------------------------------------------------------------------------------------------------------------------
 
-var required      = { required : true,  type : 'param'                          };
-var optional      = { required : false, type : 'param'                          };
-var requiredArray = { required : true,  type : 'param-array', prefix : 'member' };
-var optionalArray = { required : false, type : 'param-array', prefix : 'member' };
-var requiredData  = { required : true,  type : 'param-data',  prefix : 'member' };
-var optionalData  = { required : false, type : 'param-data',  prefix : 'member' };
+var required      = { required : true,  type : 'form'                          };
+var optional      = { required : false, type : 'form'                          };
+var requiredArray = { required : true,  type : 'form-array', prefix : 'member' };
+var optionalArray = { required : false, type : 'form-array', prefix : 'member' };
+var requiredData  = { required : true,  type : 'form-data',  prefix : 'member' };
+var optionalData  = { required : false, type : 'form-data',  prefix : 'member' };
 
 // --------------------------------------------------------------------------------------------------------------------
 

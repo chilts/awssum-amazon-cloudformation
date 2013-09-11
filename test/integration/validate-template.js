@@ -62,8 +62,6 @@ test('CloudFormation.ValidateTemplate - empty template', function(t) {
         t.equal(data, null, 'CloudFormation:ValidateTemplate - empty template : no data')
 
         var error = err.Body.ErrorResponse.Error;
-        console.log(err);
-        console.log(error);
         t.equal(
             error.Type,
             'Sender',

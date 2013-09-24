@@ -28,7 +28,7 @@ try {
 }
 catch(e) {
     // env vars aren't set, so skip these integration tests
-    console.log(e);
+    console.log('Skipping test : ' + e);
     process.exit();
 }
 

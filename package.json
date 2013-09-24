@@ -19,7 +19,7 @@
         "tap" : "0.4.x"
     },
     "scripts" : {
-        "test" : "set -e; for FILE in `ls -1 test/*.js test/integration/*.js`; do node $FILE; done"
+        "test" : "set -e; find test/ -name '*.js' -exec echo --- {} --- ';' -exec node {} ';'"
     },
 
     "homepage" : "https://github.com/awssum/awssum-amazon-cloudformation/",
